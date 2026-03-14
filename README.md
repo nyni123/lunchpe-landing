@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LunchPe — Tiffin Management SaaS Landing Page
 
-## Getting Started
+A modern Next.js 14 landing page for **LunchPe**, India's tiffin management platform.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 14** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion** (animations)
+- **Lucide React** (icons)
+- **React Hook Form** (waitlist form)
+
+## 📁 Project Structure
+
+```
+lunchpe/
+├── app/
+│   ├── globals.css          # Global styles & Tailwind
+│   ├── layout.tsx           # Root layout with metadata
+│   └── page.tsx             # Main page (assembles sections)
+├── components/
+│   ├── Navbar.tsx           # Sticky navbar with mobile menu
+│   ├── Hero.tsx             # Hero with dashboard mockup
+│   ├── Problem.tsx          # Problem statement (dark bg)
+│   ├── Solution.tsx         # Solution section with UI blocks
+│   ├── Features.tsx         # 6 feature cards
+│   ├── HowItWorks.tsx       # 4-step process timeline
+│   ├── Screenshots.tsx      # App mockups (dark bg)
+│   ├── Pricing.tsx          # 3-tier pricing cards
+│   ├── WaitlistForm.tsx     # React Hook Form waitlist
+│   ├── CTA.tsx              # Final CTA banner
+│   └── Footer.tsx           # Footer with links
+├── public/                  # Static assets
+├── tailwind.config.ts       # Tailwind + custom theme
+├── next.config.mjs
+├── tsconfig.json
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Setup & Run
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Install dependencies
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Start development server
+```bash
+npm run dev
+```
 
-## Learn More
+### 3. Open in browser
+```
+http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Build for production
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Color Theme
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Color     | Value     |
+|-----------|-----------|
+| Primary   | `#FF7A00` |
+| Dark      | `#111111` |
+| Background| `#FFFFFF` |
 
-## Deploy on Vercel
+## 📦 Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Vercel (recommended)
+```bash
+npm install -g vercel
+vercel
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Netlify / any static host
+```bash
+npm run build
+# Upload the .next folder
+```
+
+## 📝 Notes
+
+- Waitlist form logs to `console.log` — connect to your backend/Supabase/Firebase
+- All section IDs match navbar links for smooth scroll
+- Fully responsive: mobile-first design
+- Animations use Framer Motion's `whileInView` for scroll-triggered reveals
+
+---
+
+Built by **Brahmastack Technologies Pvt. Ltd.**
+contact@brahmastack.com
