@@ -14,6 +14,7 @@ const links = {
   Brahmastack: [
     { label: "About Brahmastack", href: "https://brahmastack.com/" },
     { label: "Contact", href: "https://brahmastack.com/contact/" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
   ],
 };
 
