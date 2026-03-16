@@ -159,22 +159,47 @@ export default function PrivacyPolicyPage() {
               </p>
             </section>
 
+            <section id="delete-account">
+              <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">11. LunchPe Vendor App – Account & Data Deletion</h2>
+              <p className="text-gray-600 leading-relaxed font-medium">How to request deletion</p>
+              <p className="text-gray-600 leading-relaxed">
+                To request deletion of your LunchPe Vendor account and associated data:
+              </p>
+              <ol className="list-decimal pl-6 space-y-1 text-gray-600 mt-2">
+                <li>Email us at: <a href="mailto:developer@lunchpe.com" className="text-primary hover:underline">developer@lunchpe.com</a> with subject &quot;Account Deletion Request&quot;</li>
+                <li>Include your registered phone number used in the app</li>
+                <li>We will process your request within 30 days</li>
+              </ol>
+              <p className="text-gray-600 leading-relaxed mt-4 font-medium">What we delete</p>
+              <ul className="list-disc pl-6 space-y-1 text-gray-600">
+                <li>Account/profile information (name, email, phone, tiffin center name)</li>
+                <li>Logo and payment QR images</li>
+                <li>Device token for notifications</li>
+              </ul>
+              <p className="text-gray-600 leading-relaxed mt-4 font-medium">What we may retain</p>
+              <ul className="list-disc pl-6 space-y-1 text-gray-600">
+                <li>Order and payment records as required by law (tax, accounting)</li>
+                <li>Anonymized or aggregated data for analytics</li>
+              </ul>
+              <p className="text-gray-600 leading-relaxed mt-3">We do not sell your data.</p>
+            </section>
+
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">11. Children&apos;s Privacy</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">12. Children&apos;s Privacy</h2>
               <p className="text-gray-600 leading-relaxed">
                 Our apps are not intended for users under 13. We do not knowingly collect information from children. If you believe we have collected data from a child, please contact us immediately.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">12. Changes to This Policy</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">13. Changes to This Policy</h2>
               <p className="text-gray-600 leading-relaxed">
                 We may update this Privacy Policy from time to time. We will notify you by updating the &quot;Last Updated&quot; date or through the app. Continued use after changes means you accept the updated policy.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">13. Contact Us</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">14. Contact Us</h2>
               <div className="bg-gray-100 p-6 rounded-lg mt-4">
                 <p className="font-semibold text-gray-900">LunchPe Support</p>
                 <p className="text-gray-600">Email: developer@lunchpe.com</p>
