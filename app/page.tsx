@@ -5,6 +5,8 @@ import Solution from "@/components/Solution";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import Screenshots from "@/components/Screenshots";
+import DownloadApp from "@/components/DownloadApp";
+import DownloadVendorApp from "@/components/DownloadVendorApp";
 import Pricing from "@/components/Pricing";
 import WaitlistForm from "@/components/WaitlistForm";
 import CTA from "@/components/CTA";
@@ -20,6 +22,8 @@ export default function Home() {
       <Features />
       <HowItWorks />
       <Screenshots />
+      <DownloadVendorApp />
+      <DownloadApp />
       <Pricing />
       <WaitlistForm />
       <CTA />

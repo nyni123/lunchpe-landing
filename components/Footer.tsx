@@ -52,18 +52,17 @@ export default function Footer() {
             </div>
             <div className="flex gap-3">
               {[
-                // { Icon: Twitter, href: "#" },
-                { Icon: Instagram, href: "https://instagram.com/lunchpeofficial" },
-                // { Icon: Linkedin, href: "#" },
-              ].map(({ Icon, href }, i) => (
-                <a
+                { Icon: Instagram, href: "https://instagram.com/lunchpeofficial", label: "@lunchpeofficial" },
+          ].map(({ Icon, href, label }, i) => (
+            <a
                   key={i}
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="w-8 h-8 bg-white/5 hover:bg-primary rounded-lg flex items-center justify-center transition-colors group"
-                >
-                  <Icon size={14} className="text-gray-400 group-hover:text-white" />
+              className="flex items-center gap-2 text-xs text-gray-400 hover:text-primary transition-colors"
+            >
+              <Icon size={13} />
+              {label}
                 </a>
               ))}
             </div>
