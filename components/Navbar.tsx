@@ -27,7 +27,7 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 pt-2 pb-2 transition-all duration-300 ${
         scrolled
           ? "bg-white/90 backdrop-blur-xl shadow-sm border-b border-gray-100"
           : "bg-transparent"
@@ -62,7 +62,13 @@ export default function Navbar() {
           </nav>
 
           {/* CTA */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="#download-vendor-app"
+              className="text-sm font-semibold text-gray-700 hover:text-primary border border-gray-200 hover:border-primary/40 bg-white/80 hover:bg-orange-50/80 px-4 py-2.5 rounded-xl transition-all duration-200"
+            >
+              Download app
+            </a>
             <a
               href="#waitlist"
               className="bg-primary hover:bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all duration-200"
@@ -102,11 +108,18 @@ export default function Navbar() {
                   {item.label}
                 </a>
               ))}
-              <div className="pt-2 border-t border-gray-100 mt-2">
+              <div className="pt-2 border-t border-gray-100 mt-2 flex flex-col gap-2">
+                <a
+                  href="#download-vendor-app"
+                  onClick={() => setMobileOpen(false)}
+                  className="block w-full text-center border border-gray-200 text-gray-800 text-sm font-semibold px-5 py-3 rounded-xl hover:bg-orange-50 hover:border-primary/30 transition-colors"
+                >
+                  Vendor app
+                </a>
                 <a
                   href="#waitlist"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center bg-primary hover:bg-primary-600 text-white text-sm font-semibold px-5 py-3 rounded-xl mt-2 transition-colors"
+                  className="block w-full text-center bg-primary hover:bg-primary-600 text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors"
                 >
                   Get Started
                 </a>
