@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { CheckCircle2, Loader2 } from "lucide-react";
 
+const INQUIRIES_API_URL = "https://lunchpe.brahmastack.com/api/inquiries";
+
 type FormValues = {
   name: string;
   phone: string;
@@ -16,6 +18,7 @@ type FormValues = {
 export default function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -24,11 +27,67 @@ export default function WaitlistForm() {
   } = useForm<FormValues>();
 
   const onSubmit = async (data: FormValues) => {
+    setSubmitError(null);
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    console.log("Vendor Waitlist Submission:", data);
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch(INQUIRIES_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: data.name.trim(),
+          phone: data.phone.trim(),
+          city: data.city.trim(),
+          business_name: data.businessName.trim(),
+          current_customers_count: data.customerCount.trim(),
+        }),
+      });
+
+      let resBody: unknown = null;
+      try {
+        resBody = await res.json();
+      } catch {
+        // ignore JSON parse errors
+      }
+
+      let apiErrorMessage = "";
+      if (resBody && typeof resBody === "object") {
+        const body = resBody as {
+          success?: boolean;
+          data?: { message?: string; error?: Record<string, string[] | string> };
+          message?: string;
+        };
+
+        if (typeof body.data?.message === "string" && body.data.message.trim()) {
+          apiErrorMessage = body.data.message.trim();
+        } else if (typeof body.message === "string" && body.message.trim()) {
+          apiErrorMessage = body.message.trim();
+        }
+
+        const fieldErrors = body.data?.error;
+        if (fieldErrors && typeof fieldErrors === "object") {
+          const firstFieldError = Object.values(fieldErrors)[0];
+          if (Array.isArray(firstFieldError) && typeof firstFieldError[0] === "string") {
+            apiErrorMessage = apiErrorMessage ? `${apiErrorMessage}: ${firstFieldError[0]}` : firstFieldError[0];
+          } else if (typeof firstFieldError === "string" && firstFieldError.trim()) {
+            apiErrorMessage = apiErrorMessage ? `${apiErrorMessage}: ${firstFieldError.trim()}` : firstFieldError.trim();
+          }
+        }
+
+        if (body.success === false) {
+          throw new Error(apiErrorMessage || "Inquiry submission failed");
+        }
+      }
+
+      if (!res.ok) {
+        throw new Error(apiErrorMessage || `Could not submit (${res.status})`);
+      }
+
+      setSubmitted(true);
+    } catch (e) {
+      setSubmitError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -187,6 +246,12 @@ export default function WaitlistForm() {
                   <p className="text-xs text-red-400 mt-1">{errors.customerCount.message}</p>
                 )}
               </div>
+
+              {submitError && (
+                <p className="text-sm text-red-500 text-center" role="alert">
+                  {submitError}
+                </p>
+              )}
 
               {/* Submit */}
               <button
