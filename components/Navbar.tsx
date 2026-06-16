@@ -6,10 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "Features", href: "#features" },
-  { label: "How it Works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#contact" },
+  { label: "Features", href: "/#features" },
+  { label: "How it Works", href: "/#how-it-works" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Register", href: "/register" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -36,7 +37,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 md:h-24 py-2">
           {/* Logo - @author Cursor: large and visible on mobile + desktop */}
-          <a href="#" className="flex items-center gap-2.5 group shrink-0">
+          <a href="/" className="flex items-center gap-2.5 group shrink-0">
             <Image
               src="/lunchpelogo.png"
               alt="LunchPe"
@@ -64,13 +65,13 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="#download-vendor-app"
+              href="/#download-vendor-app"
               className="text-sm font-semibold text-gray-700 hover:text-primary border border-gray-200 hover:border-primary/40 bg-white/80 hover:bg-orange-50/80 px-4 py-2.5 rounded-xl transition-all duration-200"
             >
               Download app
             </a>
             <a
-              href="#waitlist"
+              href="/#waitlist"
               className="bg-primary hover:bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all duration-200"
             >
               Get Started
@@ -110,14 +111,14 @@ export default function Navbar() {
               ))}
               <div className="pt-2 border-t border-gray-100 mt-2 flex flex-col gap-2">
                 <a
-                  href="#download-vendor-app"
+                  href="/#download-vendor-app"
                   onClick={() => setMobileOpen(false)}
                   className="block w-full text-center border border-gray-200 text-gray-800 text-sm font-semibold px-5 py-3 rounded-xl hover:bg-orange-50 hover:border-primary/30 transition-colors"
                 >
                   Vendor app
                 </a>
                 <a
-                  href="#waitlist"
+                  href="/#waitlist"
                   onClick={() => setMobileOpen(false)}
                   className="block w-full text-center bg-primary hover:bg-primary-600 text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors"
                 >
